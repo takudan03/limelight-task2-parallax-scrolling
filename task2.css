@@ -79,10 +79,7 @@ p {
     text-align: center; }
 
   .gears, .gear {
-    display: none; }
-
-  .text {
-    padding: 0 3rem 5rem 3rem; } }
+    display: none; } }
 .gears {
   position: absolute;
   z-index: 1000;
