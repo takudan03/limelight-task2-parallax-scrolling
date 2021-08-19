@@ -1,0 +1,389 @@
+$accent-color: #6B7AA1 ;
+
+html{
+    overflow-x: hidden;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; 
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100vw;
+    height: 50vh;
+    background-image:  linear-gradient(to bottom, transparent 60%, #000), url("https://i.ibb.co/8mbRr3j/output-onlinejpgtools.jpg");
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border: 2px black solid;
+    width: 800px;
+    height: 250px;
+    margin: auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.87);
+}
+
+.logo {
+    flex:1;
+    border: black 2px ;
+    height:150px;
+    width: 150px;
+    object-fit: cover;
+    color: $accent-color;
+}
+
+.title{
+    height:200px;
+    width: 300px;    
+    font-variant: small-caps;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+}
+
+.footer{
+    display: flex;
+    height: 100vh;
+    z-index: 90;
+    margin: auto;
+    background-image:  linear-gradient(to top, transparent, #000), url("https://i.ibb.co/3fsjPLy/1413001.jpg" );
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.footer-container {
+    display: block;
+    border: 2px black solid;
+    width: 70%;
+    height: fit-content;
+    margin: auto;
+    padding:20px;
+    background-color: rgba(255, 255, 255, 0.87);
+}
+
+p, h1{
+    text-align: center;
+    width: 100%;
+    padding:10px;
+}
+
+h1{
+    text-decoration: underline;
+}
+
+p{
+    font-size: 20px;
+    word-spacing: 5px;
+}
+@media only screen and (max-width: 1200px) {
+    h1 {
+      font-size: 2rem;
+      letter-spacing: 0.1rem;
+      text-align: center;
+    }
+    .gears, .gear {
+      display: none;
+    }
+    .text {
+      padding: 0 3rem 5rem 3rem;
+    }
+}
+
+.gears{
+    position: absolute;
+    z-index: 1000;
+    filter:grayscale(100%);
+}
+
+  .gear-1{
+    width: 100px;
+    height: 100px;
+    left:0;
+  }
+  .gear-2{
+    width: 120px;
+    height: 120px;
+    right:0;
+
+  }
+  .gear-3{
+    width: 140px;
+    height: 140px;
+    left:0;
+    top:5;
+  }
+  .gear-4{
+    width: 110px;
+    height: 110px;
+    right:0;
+    top:10;
+  }
+
+
+  //Task1 css
+
+.wrapper {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	padding: 50dp;
+    background-image: url("https://i.ibb.co/jZYTJF5/Wallpaper-Dog-10743975.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    padding:50px 0;
+}
+
+
+
+.card {
+    width: 480px;
+    height: 380px;
+    margin: 1em;
+    perspective: 1500px;
+
+    .content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
+    }
+}
+
+.more{
+    display: none;
+    &:checked ~ .content {
+        transform: rotateX(180deg) rotateZ(180deg);
+    }
+}
+
+.front, .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+
+    .inner {
+        height: 100%;
+        display: grid;
+        padding: 1.5em;
+        transform: translateZ(80px) scale(0.94);
+    }
+}
+
+.front{
+    background-color: #fff;
+    background-size: cover;
+    &:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: block;
+		border-radius: 6px;
+		backface-visibility: hidden;
+		background: linear-gradient(
+			60deg,
+			rgba(255, 255, 255, 0.445),
+			rgba(105, 105, 105, 0.349)
+		);
+	}
+	.inner {
+		grid-template-rows: 3fr 1fr 2fr 1fr;
+		justify-items: center;
+	}
+
+	h3 {
+        font-size: 35px;
+		grid-row: 2;
+		margin-bottom: 0.3em;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		color: #fff;
+		font-weight: 700;
+		text-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+	}
+
+	.rating {
+		grid-row: 3;
+		color: rgb(255, 255, 255);
+		font-size: 24px;
+		display: flex;
+		flex-flow: row nowrap;
+		i {
+			margin: 0 1px;
+		}
+	}
+}
+
+.back{
+    transform: rotateY(180deg);
+    background-color: #fff;
+	border: 2px solid rgb(240, 240, 240);
+
+    .inner{
+        grid-template-rows: 1fr 1fr 1fr 2fr 14fr 1fr 1fr;
+		grid-template-columns: repeat(3, auto);
+		justify-items: center;
+    }
+    .description {
+		grid-row: 5;
+		grid-column: 1/-1;
+		font-size: 0.86em;
+		border-radius: 5px;
+		font-weight: 600;
+		line-height: 1.4em;
+		overflow: auto;
+		color: $accent-color;
+		padding-right: 10px;
+	}
+    .name,
+	.price {
+		font-weight: 600;
+		color: $accent-color;
+		grid-row: 1;
+		font-size: 24px;
+		margin: 5px 0;
+	}
+
+    .name {
+		grid-column: 1/3;
+		justify-self: left;
+	}
+
+	.price {
+		grid-column: 3/-1;
+		justify-self: center;
+	}
+
+    .button {
+		justify-self: center;
+	}
+	.back-btns {
+		display: flex;
+		grid-row: -1;
+		grid-column: 1/-1;
+		grid-template-columns: 50% 50%;
+		width: fit-content;
+		text-align: center;
+		justify-content: center;
+	}
+}
+
+.front#card1-front {
+    background-image: url("https://i.ibb.co/gvnchFg/Screenshot-from-2021-07-30-17-53-53.png" );
+}
+
+.front#card2-front {
+    background-image: url("https://i.ibb.co/M7JYYVt/Screenshot-from-2021-07-30-17-53-24.png");
+}
+
+.front#card3-front {
+    background-image: url("https://i.ibb.co/j4Fp1cM/Men-Watch-Luxury-Fashion-Military-Stainless-Steel-Sport-Quartz-Analog-Wrist-Watch-Hot-Sales-Mens-Wat.webp");
+}
+ 
+.front#card4-front {
+    background-image: url("https://i.ibb.co/k1n9ZN3/a.png");
+}
+ 
+
+
+.button{
+    grid-row: -1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    cursor:pointer;
+    display: block;
+    padding: 0 1.5em;
+    margin: 0 3em;
+    height: 3em;
+    line-height: 2.9em;
+    min-width: 3em;
+    background-color: transparent;
+    border: solid 2px #fff;
+    color: #fff;
+	border-radius: 4px;
+	text-align: center;
+    left: 50%;
+	backface-visibility: hidden;
+	transition: 0.3s ease-in-out;
+	text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+
+    &:hover{
+		background-color: #fff;
+		box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+		text-shadow: none;
+		color: $accent-color;
+    }
+
+    &.return {
+		line-height: 3em;
+		color: $accent-color;
+		border-color: $accent-color;
+		text-shadow: none;
+		&:hover {
+			background-color: $accent-color;
+			color: #fff;
+			box-shadow: none;
+		}
+	}
+
+    &.add-to-cart {
+		line-height: 3em;
+		color: $accent-color;
+		border-color: $accent-color;
+		text-shadow: none;
+		&:hover {
+			background-color: $accent-color;
+			color: #fff;
+			box-shadow: none;
+		}
+	
+  	}
+}
+
+.cart{
+	display: none;
+    &:checked ~ .add-to-cart::after {
+        content:"\2714";
+		font-size: 20px;
+		color: $accent-color;
+    }
+	&:checked ~ .add-to-cart:hover {
+		background-color: $accent-color;
+		color: #fff;
+		box-shadow: none;
+	}
+}
+
+
+
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+	background: lighten($accent-color, 20%);
+}
+::-webkit-scrollbar-thumb:hover {
+	background: $accent-color;
+}
